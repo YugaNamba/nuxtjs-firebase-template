@@ -1,5 +1,9 @@
 # nuxtjs-firebase-template
 
+自分がよく使うであろうテンプレート
+
+Nuxt.js x Firebase の構成
+
 ## 使い方
 
 1. クローン

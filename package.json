@@ -1,0 +1,22 @@
+{
+  "name": "nuxtjs-firebase-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YugaNamba/nuxtjs-firebase-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YugaNamba/nuxtjs-firebase-template/issues"
+  },
+  "homepage": "https://github.com/YugaNamba/nuxtjs-firebase-template#readme",
+  "scripts": {
+    "hosting:dev": "cd hosting/app && yarn dev",
+    "hosting:deploy": "cd hosting/app && yarn build && firebase deploy --only hosting",
+    "firestore:get:indexes": "firebase firestore:indexes",
+    "firestore:deploy": "firebase deploy --only firestore",
+    "all:deploy": "yarn hosting:deploy && yarn firestore:deploy"
+  },
+  "volta": {
+    "node": "12.21.0",
+    "yarn": "1.22.10"
+  }
+}

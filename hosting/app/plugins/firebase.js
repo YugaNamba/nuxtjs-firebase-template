@@ -24,6 +24,13 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config)
 }
 
+const isEmulating = window.location.hostname === 'localhost'
+if (isEmulating) {
+  firebase.auth().useEmulator('http://localhost:9099/')
+  firebase.app().functions().useEmulator('localhost', 5001)
+  firebase.firestore().settings({ host: 'localhost:8080', ssl: false })
+}
+
 export default firebase
 
 export const authProviders = {
@@ -36,7 +43,7 @@ export const functions = firebase.app().functions('asia-northeast1')
 export const db = firebase.firestore()
 export const firestore = firebase.firestore
 
-function loadTextFileAjaxSync(filePath, mimeType) {
+const loadTextFileAjaxSync = (filePath, mimeType) => {
   const xmlhttp = new XMLHttpRequest()
   xmlhttp.open('GET', filePath, false)
   if (mimeType != null) {
